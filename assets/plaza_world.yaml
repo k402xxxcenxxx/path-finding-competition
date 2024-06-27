@@ -13,7 +13,8 @@ robot:
     shape: {name: 'rectangle', length: 1, width: 1, wheelbase: 1}
     state: [50, 25, 0, 0]
     goal: [40, 40, 0]
-    vel_max: [40, 1]
+    vel_max: [1, 1]
+    vel_min: [-1, -1]
     behavior: {name: 'dash'} # move toward to the goal directly
     plot:
       show_trail: True

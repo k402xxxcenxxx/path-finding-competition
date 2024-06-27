@@ -48,8 +48,8 @@ class PlazaEnv(EnvBase):
     def __init__(self, world_name=None, display=True, disable_all_plot=False, save_ani=False, full=False, log=True, log_file='ir_sim.log', log_level='INFO', **kwargs):
         super().__init__(world_name, display, disable_all_plot, save_ani, full, log, log_file, log_level, **kwargs)
 
+        # Overwrite the step function
         for o in self.objects:
-            
             funcType = type(o.step)
             o.step = funcType(step, o)
 
