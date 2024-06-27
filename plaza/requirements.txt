@@ -1,0 +1,4 @@
+ir_sim
+jsonschema
+pyQt5
+scipy
