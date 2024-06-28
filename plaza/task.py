@@ -33,6 +33,7 @@ class Task:
         self.item_list = []
         self.step_counter = 0
     
+    def init_algorithm(self):
         self.algorithm = PlazaAlgorithm(self.db, self.target_list)
     
     def run(self, max_steps: int = 1000):

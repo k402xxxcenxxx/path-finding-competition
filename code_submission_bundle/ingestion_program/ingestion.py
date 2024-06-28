@@ -1,11 +1,20 @@
 import json
 from pprint import pformat
 import time
+import sys
+import os
+
+module_path = '/app/plaza/'
+input_dir = '/app/input_data/'
+output_dir = '/app/output/'
+
+sys.path.append(module_path)
 
 def main():
     from plaza.task import Task
     print('Init environment')
-    task = Task(map_filepath="assets/plaza.yaml", db_filepath="assets/plaza_data.json")
+    task = Task(map_filepath=os.path.join(input_dir, "plaza.yaml"),
+                db_filepath=os.path.join(input_dir, "plaza_data.json"))
 
     print('Starting')
     start = time.time()
@@ -26,7 +35,7 @@ def main():
     print("Result: ")
     print(pformat(result))
 
-    with open("result.json", "w") as f:
+    with open(os.path.join(output_dir, "result.json"), 'w+') as f:
         json.dump(result, f)
     print()
 
