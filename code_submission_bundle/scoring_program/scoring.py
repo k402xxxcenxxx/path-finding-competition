@@ -1,34 +1,20 @@
 import json
 import os
 
-result_dir = os.path.join("/app/input/")
+result_dir = "/app/input/res"
 score_dir = '/app/output/'
 
-
-import os
-
-def list_files(start_path):
-    for root, dirs, files in os.walk(start_path):
-        level = root.replace(start_path, '').count(os.sep)
-        indent = ' ' * 4 * (level)
-        print(f"{indent}{os.path.basename(root)}/")
-        sub_indent = ' ' * 4 * (level + 1)
-        for file in files:
-            print(f"{sub_indent}{file}")
-        for dir in dirs:
-            list_files(os.path.join(root, dir))
-
-# Replace 'your/path' with the path you want to list
-list_files('/app')
-
 print('Reading result')
-with open(os.path.join(result_dir, "result.json")) as f:
-    efficiency = json.load(f).get("efficiency", -1)
-    duration = json.load(f).get("duration", -1)
+with open(os.path.join(result_dir, "result.json"), "r") as f:
+    json_data = json.load(f)
+    accomplishment_rate = json_data.get("accomplishment_rate", -1)
+    total_step = json_data.get("total_step", -1)
+    duration = json_data.get("duration", -1)
 
 print('Scores:')
 scores = {
-    "efficiency": efficiency,
+    "accomplishment_rate": accomplishment_rate,
+    "total_step": total_step,
     "duration": duration
 }
 print(scores)

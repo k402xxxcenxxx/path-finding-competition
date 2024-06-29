@@ -15,7 +15,6 @@ class PlazaAlgorithm(Algorithm):
 
     def get_action(self, env: PlazaEnv):
         
-        print("HAHAHA")
         target = self.target_list[len(self.current_list)]
         target_state = [[target["pos"]["x"]], [target["pos"]["y"]], [0], [0]]
 
