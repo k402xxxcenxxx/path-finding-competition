@@ -1,0 +1,78 @@
+version: 2
+title: Path-Finding Algorithm Competition
+description: >
+  Competition to develop and test path-finding algorithms for robots, 
+  considering path time and accomplishment rate of a buying list.
+image: pathfinding.jpg
+registration_auto_approve: True  # do not require approval from admin to join the competition
+docker_image: k402xxxcenxxx/test:latest
+
+terms: pages/terms.md
+pages:
+  - title: Participation
+    file: pages/participate.md
+  - title: Seed
+    file: pages/seed.md
+  - title: Timeline
+    file: pages/timeline.md
+
+tasks:
+  - index: 0
+    name: Path-Finding Development Task
+    description: >
+      Tune algorithms on the provided development dataset.
+      The dataset includes a simple map and an item list with attributes
+      and locations that the robot needs to navigate to and buy items.
+    input_data: dev_phase/input_data/
+    reference_data: dev_phase/reference_data/
+    ingestion_program: ingestion_program/
+    scoring_program: scoring_program/
+  - index: 1
+    name: Path-Finding Final Task
+    description: >
+      Train algorithms with the development dataset and test against an unseen final dataset.
+      The final dataset includes a hard map and a different item list with attributes
+      and locations that the robot needs to navigate to and buy items.
+    input_data: final_phase/input_data/
+    reference_data: final_phase/reference_data/
+    ingestion_program: ingestion_program/
+    scoring_program: scoring_program/
+
+solutions:
+  - index: 0
+    tasks:
+    - 0
+    - 1
+    path: solution/
+
+phases:
+  - name: Development Phase
+    description: >
+      Development phase: tune your path-finding algorithms.
+      Use the simple map and item list provided to develop and test your solutions.
+    start: 6-1-2024
+    end: 9-30-2024
+    tasks:
+      - 0
+  - name: Testing Phase
+    description: >
+      Final Phase: test against unseen path-finding data.
+      Use the hard map and item list provided to test the performance of your solutions.
+    max_submissions: 1
+    start: 10-1-2024
+    end: 12-31-2024
+    tasks:
+      - 1
+
+leaderboards:
+  - title: Results
+    key: main
+    columns:
+      - title: Accomplishment Rate
+        key: accomplishment_rate
+        index: 0
+        sorting: desc
+      - title: Path Time
+        key: path_time
+        index: 1
+        sorting: asc

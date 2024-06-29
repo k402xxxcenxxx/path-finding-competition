@@ -2,7 +2,7 @@ from collections import Counter
 import logging
 from pprint import pformat
 
-from plaza.plaza_algorithm import PlazaAlgorithm
+from plaza.algorithm import Algorithm
 from plaza.plaza_db import PlazaDB
 from plaza.plaza_env import PlazaEnv
 
@@ -33,7 +33,8 @@ class Task:
         self.item_list = []
         self.step_counter = 0
     
-        self.algorithm = PlazaAlgorithm(self.db, self.target_list)
+    def init_algorithm(self, algorithm: Algorithm):
+        self.algorithm = algorithm
     
     def run(self, max_steps: int = 1000):
         for _ in range(max_steps):
