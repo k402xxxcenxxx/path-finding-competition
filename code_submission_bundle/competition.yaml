@@ -5,7 +5,7 @@ description: >
   considering path time and accomplishment rate of a buying list.
 image: pathfinding.jpg
 registration_auto_approve: True  # do not require approval from admin to join the competition
-docker_image: k402xxxcenxxx/test:latest
+docker_image: ghcr.io/k402xxxcenxxx/path-finding-competition:release
 
 terms: pages/terms.md
 pages:
@@ -73,6 +73,6 @@ leaderboards:
         index: 0
         sorting: desc
       - title: Path Time
-        key: path_time
+        key: total_step
         index: 1
         sorting: asc
