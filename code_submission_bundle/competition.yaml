@@ -5,13 +5,14 @@ description: >
   considering path time and accomplishment rate of a buying list.
 image: pathfinding.jpg
 registration_auto_approve: True  # do not require approval from admin to join the competition
+docker_image: k402xxxcenxxx/test:latest
 
 terms: pages/terms.md
 pages:
   - title: Participation
     file: pages/participate.md
-  - title: Data
-    file: pages/data.md
+  - title: Seed
+    file: pages/seed.md
   - title: Timeline
     file: pages/timeline.md
 
@@ -49,7 +50,7 @@ phases:
     description: >
       Development phase: tune your path-finding algorithms.
       Use the simple map and item list provided to develop and test your solutions.
-    start: 8-1-2024
+    start: 6-1-2024
     end: 9-30-2024
     tasks:
       - 0

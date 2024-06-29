@@ -4,12 +4,13 @@ import time
 
 def main():
     from plaza.task import Task
+    from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
     task = Task(map_filepath="assets/plaza.yaml", db_filepath="assets/plaza_data.json")
 
     print('Starting')
     start = time.time()
-    task.init_algorithm()
+    task.init_algorithm(PlazaAlgorithm(task.db, task.target_list))
 
     print('-' * 10)
 
