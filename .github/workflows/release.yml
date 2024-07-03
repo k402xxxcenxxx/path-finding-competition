@@ -1,0 +1,32 @@
+name: Release the competition boundle
+
+on:
+   push:
+    branches: [ "release" ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}   # checkout the correct branch name
+        fetch-depth: 0                # fetch the whole repo history
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: code_submission_bundle
+        path: code_submission_bundle
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: sample_code_submission
+        path: sample_code_submission
+    

@@ -26,7 +26,6 @@ def main():
     print('Starting')
     start = time.time()
     task.init_algorithm(PlazaAlgorithm(task.db, task.target_list))
-    task.init_algorithm()
 
     print('-' * 10)
 
@@ -43,7 +42,7 @@ def main():
     print("Result: ")
     print(pformat(result))
 
-    with open(os.path.join(output_dir, "result.json"), 'w+') as f:
+    with open(os.path.join(output_dir, "result.json"), 'w') as f:
         json.dump(result, f)
     print()
 
