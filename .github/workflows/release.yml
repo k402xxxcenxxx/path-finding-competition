@@ -19,33 +19,32 @@ jobs:
         ref: ${{ github.head_ref }}   # checkout the correct branch name
         fetch-depth: 0                # fetch the whole repo history
 
+    - name: Create ZIP archive
+      run: |
+          mkdir build
+          pushd code_submission_bundle
+          zip -r ../build/code_submission_bundle.zip .
+          popd
+          pushd sample_code_submission
+          zip -r ../build/sample_code_submission.zip .
+          popd
+          
     - uses: actions/upload-artifact@v4
       with:
         name: code_submission_bundle
-        path: code_submission_bundle
+        path: build/code_submission_bundle.zip
 
     - uses: actions/upload-artifact@v4
       with:
         name: sample_code_submission
-        path: sample_code_submission
+        path: build/sample_code_submission.zip
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@2.9.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: code_submission_bundle
+        file: build/*.zip
+        file_glob: true
         asset_name: code_submission_bundle
         tag: ${{ github.ref }}
         overwrite: true
-        body: "This is the submission bundle for creating the competition"
-
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@2.9.0
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: sample_code_submission
-        asset_name: sample_code_submission
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "This is an example for code submission"
-        
