@@ -1,8 +1,9 @@
 name: Release the competition boundle
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - '*'
 
 permissions:
   contents: read
@@ -28,14 +29,22 @@ jobs:
         name: sample_code_submission
         path: sample_code_submission
 
-    - uses: Shopify/upload-to-release@v2.0.0
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2.9.0
       with:
-        name: code_submission_bundle
-        path: code_submission_bundle
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: code_submission_bundle
+        asset_name: code_submission_bundle
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is the submission bundle for creating the competition"
 
-    - uses: Shopify/upload-to-release@v2.0.0
-      with:
-        name: sample_code_submission
-        path: sample_code_submission
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2.9.0
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: sample_code_submission
+        asset_name: sample_code_submission
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is an example for code submission"
+        
