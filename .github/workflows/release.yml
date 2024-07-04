@@ -1,10 +1,8 @@
 name: Release the competition boundle
 
 on:
-   push:
-    branches: [ "release" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+  release:
+    types: [published]
 
 permissions:
   contents: read
