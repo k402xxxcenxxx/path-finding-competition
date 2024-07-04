@@ -30,7 +30,7 @@ jobs:
         path: sample_code_submission
 
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2.9.0
+      uses: svenstaro/upload-release-action@2.9.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: code_submission_bundle
@@ -40,7 +40,7 @@ jobs:
         body: "This is the submission bundle for creating the competition"
 
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2.9.0
+      uses: svenstaro/upload-release-action@2.9.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: sample_code_submission
