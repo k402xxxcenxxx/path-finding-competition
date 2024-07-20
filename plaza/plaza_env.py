@@ -1,6 +1,3 @@
-from ir_sim.env import EnvBase
-from ir_sim.global_param import env_param, world_param
-import numpy as np
 import cv2
 
 class PlazaEnv():

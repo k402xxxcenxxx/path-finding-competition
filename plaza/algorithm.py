@@ -1,9 +1,3 @@
-from plaza.plaza_env import PlazaEnv
-
-class Algorithm:
-    def get_action(self, env: PlazaEnv):
-        raise NotImplementedError("You must implement this function")
-
 class Algorithm:
     def __init__(self, map_data, items, start, end):
         self.map_data = map_data
