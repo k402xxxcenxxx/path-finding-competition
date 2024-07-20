@@ -1,4 +1,5 @@
-ir_sim
 jsonschema
+opencv-python
+pathfinding
 pyQt5
 scipy
