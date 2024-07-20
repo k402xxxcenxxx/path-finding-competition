@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential linux-libc-dev \
     wget bzip2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 \
+    libglib2.0-0 libxext6 libsm6 libxrender1 ffmpeg \
     git mercurial subversion r-base mono-runtime libgomp1 libc6 curl grep sed dpkg tini && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

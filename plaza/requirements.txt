@@ -2,4 +2,5 @@ jsonschema
 opencv-python
 pathfinding
 pyQt5
+pyyaml
 scipy
