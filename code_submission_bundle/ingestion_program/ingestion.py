@@ -18,14 +18,13 @@ sys.path.append(submission_dir)
 
 def main():
     from plaza.task import Task
-    from plaza_algorithm import PlazaAlgorithm
+    from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
-    task = Task(map_filepath=os.path.join(input_dir, "plaza.yaml"),
-                db_filepath=os.path.join(input_dir, "plaza_data.json"))
+    task = Task(config_filepath=os.path.join(input_dir, "plaza.yaml"), num_item=20)
 
     print('Starting')
     start = time.time()
-    task.init_algorithm(PlazaAlgorithm(task.db, task.target_list))
+    task.init_algorithm(PlazaAlgorithm(task.env.map_data, task.target_list, task.start, task.end))
 
     print('-' * 10)
 
@@ -35,6 +34,8 @@ def main():
 
     print("Completed simulation.")
     print(f"Total duration: {duration}")
+
+    task.judge()
     
     result = task.get_result()
     result["duration"] = duration
@@ -42,7 +43,7 @@ def main():
     print("Result: ")
     print(pformat(result))
 
-    with open(os.path.join(output_dir, "result.json"), 'w') as f:
+    with open(os.path.join(output_dir, "result.json"), "w") as f:
         json.dump(result, f)
     print()
 

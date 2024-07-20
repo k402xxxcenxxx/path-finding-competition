@@ -35,7 +35,7 @@ class PlazaDB:
     def gets(self, num: int = 1) -> list:
         return random.sample(self.attributes, k=num)
 
-    def query(self, point: tuple, max_distance: float = 1.0) -> object:
+    def query(self, point: tuple, max_distance: float = 3.0) -> object:
         distance, idx = self.kdtree.query(point)
         if distance > max_distance:
             return None
