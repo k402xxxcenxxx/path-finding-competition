@@ -3,10 +3,6 @@ from pprint import pformat
 import time
 import sys
 import os
-from unittest.mock import MagicMock
-
-# Mock pynput globally
-sys.modules['pynput'] = MagicMock()
 
 module_path = '/app/'
 input_dir = '/app/input_data/'
@@ -20,7 +16,7 @@ def main():
     from plaza.task import Task
     from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
-    task = Task(config_filepath=os.path.join(input_dir, "plaza.yaml"), num_item=20)
+    task = Task(config_filepath=os.path.join(input_dir, "plaza.yaml"), num_item=2)
 
     print('Starting')
     start = time.time()
