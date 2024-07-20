@@ -1,1 +1,1 @@
-command: cat /app/input/res/result.json
+command: python3 scoring.py
