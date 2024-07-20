@@ -1,0 +1,28 @@
+[
+    {
+        "name": "banana",
+        "pos": {
+            "x": 150,
+            "y": 400
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 100,
+            "packaging_volume": "M",
+            "fragile": true
+        }
+    },
+    {
+        "name": "apple",
+        "pos": {
+            "x": 50,
+            "y": 400
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 100,
+            "packaging_volume": "M",
+            "fragile": true
+        }
+    }
+]

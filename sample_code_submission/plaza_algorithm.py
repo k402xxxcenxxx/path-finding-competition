@@ -1,36 +1,48 @@
-from ir_sim.lib.behaviorlib import DiffDash
-from ir_sim.util.util import relative_position
-import numpy as np
 from plaza.algorithm import Algorithm
-from plaza.plaza_env import PlazaEnv
-from plaza.plaza_db import PlazaDB
 
-# Simplest algorithm
+from pathfinding.core.grid import Grid
+from pathfinding.finder.a_star import AStarFinder
+
 class PlazaAlgorithm(Algorithm):
-    def __init__(self, db: PlazaDB, target_list: list) -> None:
-        self.db = db
-        self.target_list = target_list
-        self.current_list = []
+    def __init__(self, map_data, items, start, end):
+        super().__init__(map_data, items, start, end)
 
+    def find_path(self):
 
-    def get_action(self, env: PlazaEnv):
-        
-        target = self.target_list[len(self.current_list)]
-        target_state = [[target["pos"]["x"]], [target["pos"]["y"]], [0], [0]]
+        paths = []
 
-        robot_state = env.get_robot_state()
+        # Use A* algorithm for pathfinding
+        grid = Grid(matrix=self.map_data.tolist())
+    
+        current_pos = self.start
 
-        distance, _ = relative_position(robot_state, target_state) 
+        # straight forward order
+        for item in self.items:
+            
+            start_node = grid.node(current_pos[0], current_pos[1])
+            end_node = grid.node(item["pos"]["x"], item["pos"]["y"])
+            finder = AStarFinder()
+            path, _ = finder.find_path(start_node, end_node, grid)
 
-        if distance < 1:
-            self.current_list.append(target)
-            return {
-                "type": "buy",
-                "value": []
-            }
-        else:
-            movement = DiffDash(robot_state, target_state, np.array([[1], [1]]))
-            return {
-                "type": "move",
-                "value": movement
-            }
+            paths.extend([{
+                "action": "move",
+                "pos": (int(node.x), int(node.y))
+            } for node in path])
+            paths.append({
+                "action": "buy"
+            })
+
+            current_pos = [item["pos"]["x"], item["pos"]["y"]]
+            grid.cleanup()
+
+        start_node = grid.node(current_pos[0], current_pos[1])
+        end_node = grid.node(self.end[0], self.end[1])
+        finder = AStarFinder()
+        path, _ = finder.find_path(start_node, end_node, grid)
+
+        paths.extend([{
+            "action": "move",
+            "pos": (int(node.x), int(node.y))
+        } for node in path])
+
+        return paths

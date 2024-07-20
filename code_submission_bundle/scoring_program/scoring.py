@@ -7,15 +7,19 @@ score_dir = '/app/output/'
 print('Reading result')
 with open(os.path.join(result_dir, "result.json"), "r") as f:
     json_data = json.load(f)
-    accomplishment_rate = json_data.get("accomplishment_rate", -1)
     total_step = json_data.get("total_step", -1)
     duration = json_data.get("duration", -1)
+    is_valid = json_data.get("is_valid", False)
+    is_finish = json_data.get("is_finish", False)
+    item_list = json_data.get("item_list", False)
 
 print('Scores:')
 scores = {
-    "accomplishment_rate": accomplishment_rate,
+    "item_list": item_list,
+    "duration": duration,
+    "is_valid": is_valid,
+    "is_finish": is_finish,
     "total_step": total_step,
-    "duration": duration
 }
 print(scores)
 

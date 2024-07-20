@@ -1,9 +1,4 @@
-from ir_sim.lib.behaviorlib import DiffDash
-from ir_sim.util.util import relative_position
-import numpy as np
 from plaza.algorithm import Algorithm
-from plaza.plaza_env import PlazaEnv
-from plaza.plaza_db import PlazaDB
 
 from pathfinding.core.grid import Grid
 from pathfinding.finder.a_star import AStarFinder
@@ -18,7 +13,6 @@ class PlazaAlgorithm(Algorithm):
 
         # Use A* algorithm for pathfinding
         grid = Grid(matrix=self.map_data.tolist())
-        # return [(node.y, node.x) for node in path]
     
         current_pos = self.start
 
@@ -52,4 +46,3 @@ class PlazaAlgorithm(Algorithm):
         } for node in path])
 
         return paths
-
