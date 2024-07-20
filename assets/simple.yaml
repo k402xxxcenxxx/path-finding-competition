@@ -1,0 +1,5 @@
+world:
+  obstacle_map: 'simple.jpg'
+  item_list: 'simple.json'
+  start: [100, 100]
+  end: [420, 380]

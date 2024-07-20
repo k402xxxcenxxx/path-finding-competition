@@ -5,7 +5,7 @@ description: >
   considering path time and accomplishment rate of a buying list.
 image: pathfinding.jpg
 registration_auto_approve: True  # do not require approval from admin to join the competition
-docker_image: ghcr.io/k402xxxcenxxx/path-finding-competition:release
+docker_image: ghcr.io/k402xxxcenxxx/path-finding-competition:v1.1.0
 
 terms: pages/terms.md
 pages:
@@ -68,11 +68,19 @@ leaderboards:
   - title: Results
     key: main
     columns:
-      - title: Accomplishment Rate
-        key: accomplishment_rate
+      - title: Valid?
+        key: is_valid
         index: 0
         sorting: desc
-      - title: Path Time
-        key: total_step
+      - title: Finish?
+        key: is_finish
         index: 1
+        sorting: desc
+      - title: Path Distance
+        key: total_step
+        index: 2
+        sorting: asc
+      - title: Algorithm Calculate Duration
+        key: duration
+        index: 3
         sorting: asc

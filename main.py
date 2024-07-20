@@ -6,11 +6,11 @@ def main():
     from plaza.task import Task
     from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
-    task = Task(map_filepath="assets/plaza.yaml", db_filepath="assets/plaza_data.json")
+    task = Task(config_filepath="assets/plaza.yaml", num_item=20)
 
     print('Starting')
     start = time.time()
-    task.init_algorithm(PlazaAlgorithm(task.db, task.target_list))
+    task.init_algorithm(PlazaAlgorithm(task.env.map_data, task.target_list, task.start, task.end))
 
     print('-' * 10)
 
@@ -20,6 +20,8 @@ def main():
 
     print("Completed simulation.")
     print(f"Total duration: {duration}")
+
+    task.judge()
     
     result = task.get_result()
     result["duration"] = duration
@@ -32,6 +34,8 @@ def main():
     print()
 
     print('Ingestion Program finished.')
+
+    task.draw()
 
 if __name__ == '__main__':
     main()
