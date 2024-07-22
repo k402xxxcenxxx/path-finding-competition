@@ -73,7 +73,8 @@ class Task:
         self._judge_valid_path()
         self._judge_buying_list()
 
-        cv2.imwrite("path.jpg", self.path_image)
+    def dump_path_image(self, path):
+        cv2.imwrite(path, self.path_image)
 
     def _bresenham(self, x0, y0, x1, y1):
         """Bresenham's Line Algorithm to find all points between (x0, y0) and (x1, y1)."""

@@ -22,7 +22,8 @@ def main():
     print(f"Total duration: {duration}")
 
     task.judge()
-    
+    task.dump_path_image("path_image.png")
+
     result = task.get_result()
     result["duration"] = duration
 
