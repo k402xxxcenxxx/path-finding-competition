@@ -40,6 +40,8 @@ class Task:
         self.logger.debug("init robot")
         self.item_list = []
         self.step_counter = 0
+        self.frozen_step_counter = 0
+        self.fresh_step_counter = 0
 
         # render component
         self.path_color = (255, 0, 0) # Blue
@@ -64,6 +66,10 @@ class Task:
         self.start_level = self.config["plaza"]["start"]["level"]
         self.end_level = self.config["plaza"]["end"]["level"]
 
+        # Set default value
+        self.frozen_temperature = -18
+        self.fresh_temperature = 7
+
     def init_algorithm(self, algorithm: Algorithm):
         self.algorithm = algorithm
 
@@ -72,6 +78,8 @@ class Task:
 
     def judge(self):
         self.step_counter = 0
+        self.frozen_step_counter = 0
+        self.fresh_step_counter = 0
         self.collision_point = None
         self.item_list = []
         self.current_set = ()
@@ -124,6 +132,9 @@ class Task:
         line_points = self._bresenham(x0, y0, x1, y1)
         for point in line_points:
             self.step_counter += 1
+            self.frozen_step_counter += len([i for i in self.item_list if i["attributes"]["storage_temperature"] <= self.frozen_temperature])
+            self.fresh_step_counter += len([i for i in self.item_list if i["attributes"]["storage_temperature"] > self.frozen_temperature and i["attributes"]["storage_temperature"] < self.fresh_temperature])
+
             if self.env.maps[level].map_image.map_data[point[1]][point[0]] == 0:  # 0 represents an obstacle
                 self.collision_point = point
                 cv2.circle(self.path_image, (self.path_image_y_offsets[level] + point[0], point[1]), 1, self.collision_color, -1)
@@ -185,7 +196,9 @@ class Task:
             "is_finish": self.current_set == self.target_set,
             "collision_point": self.collision_point,
             "item_list": self.item_list,
-            "total_step": self.step_counter
+            "total_step": self.step_counter,
+            "frozen_step": self.frozen_step_counter,
+            "fresh_step": self.fresh_step_counter
         }
         return result
 
