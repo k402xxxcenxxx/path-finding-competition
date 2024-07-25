@@ -38,6 +38,8 @@ class Task:
         self.logger.debug("init robot")
         self.item_list = []
         self.step_counter = 0
+        self.frozen_step_counter = 0
+        self.fresh_step_counter = 0
 
         # render component
         self.path_color = (255, 0, 0) # Blue
@@ -56,6 +58,10 @@ class Task:
         self.db_path = os.path.join(self.config_dir, self.config["world"]["item_list"])
         self.start = (self.config["world"]["start"][0], self.config["world"]["start"][1])
         self.end = (self.config["world"]["end"][0], self.config["world"]["end"][1])
+
+        # Set default value
+        self.frozen_temperature = -18
+        self.fresh_temperature = 7
     
     def init_algorithm(self, algorithm: Algorithm):
         self.algorithm = algorithm
@@ -65,13 +71,14 @@ class Task:
     
     def judge(self):
         self.step_counter = 0
+        self.frozen_step_counter = 0
+        self.fresh_step_counter = 0
         self.collision_point = None
         self.item_list = []
         self.current_set = ()
         self.path_image = self.env.map_image_3channel.copy() * 0.5
         
         self._judge_valid_path()
-        self._judge_buying_list()
 
     def dump_path_image(self, path):
         cv2.imwrite(path, self.path_image)
@@ -100,41 +107,72 @@ class Task:
         return points
 
     def _judge_valid_path(self):
-        points = [p["pos"] for p in self.path if p["action"] == "move"]
-        points.insert(0, self.start)
-        points.append(self.end)
+        points = self.path.copy()
+        points.insert(0, {
+            "action": "move",
+            "pos": self.start
+        })
+        points.append({
+            "action": "move",
+            "pos": self.end
+        })
 
-        for i in range(len(points) - 1):
-            x0, y0 = points[i]
-            x1, y1 = points[i + 1]
+        def _path_validation(idx1, idx2):
+            x0, y0 = points[idx1]
+            x1, y1 = points[idx2]
             line_points = self._bresenham(x0, y0, x1, y1)
             for point in line_points:
+
+                # Move step
                 self.step_counter += 1
+                self.frozen_step_counter += len([i for i in self.item_list if i["attributes"]["storage_temperature"] <= self.frozen_temperature])
+                self.fresh_step_counter += len([i for i in self.item_list if i["attributes"]["storage_temperature"] > self.frozen_temperature and i["attributes"]["storage_temperature"] < self.fresh_temperature])
+
                 if self.env.map_data[point[1]][point[0]] == 0:  # 0 represents an obstacle
                     self.collision_point = point
+                    # Draw collision point in path image
                     cv2.circle(self.path_image, (point[0], point[1]), 1, self.collision_color, -1)
                     return
                 else:
+                    # Draw path point in path image
                     self.path_image[point[1], point[0]] = self.path_color
-        return
 
-    def _judge_buying_list(self):
-        current_pos = self.start
+            return
 
-        for p in self.path:
-            if p["action"] == "move":
-                current_pos = p["pos"]
-            elif p["action"] == "buy":
-                item = self.db.query(current_pos)
+        def _buying_validation(pos):
+            item = self.db.query(pos)
+            if item != None:
                 self.item_list.append(item)
-                if item != None:
-                    cv2.circle(self.path_image, current_pos, 3, self.buy_color, -1)
+                # Draw buying position
+                cv2.circle(self.path_image, current_pos, 3, self.buy_color, -1)
             else:
-                self.logger.warning(f"Invalid action: {p['action']}")
+                self.warning(f"Invalid buying point: {pos}")
+
+        p1_idx = -1
+        p2_idx = -1
+        current_pos = self.start
+        for i in range(len(points) - 1):
+            if points[i]["action"] == "move":
+                current_pos = points[i]["pos"]
+
+                if p1_idx < 0 and p2_idx < 0:
+                    p1_idx, p2_idx = -1, i
+                    continue
+                elif p2_idx >= 0:
+                    p1_idx, p2_idx = p2_idx, i
+                    _path_validation(p1_idx, p2_idx)
+                else:
+                    self.logger.warning(f"Unexpected condition p1_idx: {p1_idx}, p2_idx: {p2_idx}")
+                    return
+                    
+            elif points[i]["action"] == "buy":
+                _buying_validation(current_pos)
+            else:
+                self.logger.warning(f'Path contains invalid action {points[i]["action"]}')
                 self.item_list = []
                 self.current_set = ()
                 return
-        
+
         if self.item_list:
             self.current_set = Counter((obj["name"]) for obj in self.item_list if obj != None)
         else:
@@ -148,7 +186,9 @@ class Task:
             "is_finish": self.current_set == self.target_set,
             "collision_point": self.collision_point,
             "item_list": self.item_list,
-            "total_step": self.step_counter
+            "total_step": self.step_counter,
+            "frozen_step": self.frozen_step_counter,
+            "fresh_step": self.fresh_step_counter
         }
         return result
     
