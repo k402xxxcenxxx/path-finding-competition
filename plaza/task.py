@@ -17,7 +17,7 @@ class Task:
         self.config = {}
         self.load_config(config_filepath)
 
-        # init env 
+        # init env
         self.logger.debug("init env")
         self.env = PlazaEnv(self.obstacle_map_path)
 
@@ -51,25 +51,25 @@ class Task:
 
         with open(filepath, 'r') as file:
             self.config = yaml.safe_load(file)
-        
+
         self.obstacle_map_path = os.path.join(self.config_dir, self.config["world"]["obstacle_map"])
         self.db_path = os.path.join(self.config_dir, self.config["world"]["item_list"])
         self.start = (self.config["world"]["start"][0], self.config["world"]["start"][1])
         self.end = (self.config["world"]["end"][0], self.config["world"]["end"][1])
-    
+
     def init_algorithm(self, algorithm: Algorithm):
         self.algorithm = algorithm
-    
+
     def run(self):
         self.path = self.algorithm.find_path()
-    
+
     def judge(self):
         self.step_counter = 0
         self.collision_point = None
         self.item_list = []
         self.current_set = ()
         self.path_image = self.env.map_image_3channel.copy() * 0.5
-        
+
         self._judge_valid_path()
         self._judge_buying_list()
 
@@ -134,7 +134,7 @@ class Task:
                 self.item_list = []
                 self.current_set = ()
                 return
-        
+
         if self.item_list:
             self.current_set = Counter((obj["name"]) for obj in self.item_list if obj != None)
         else:
@@ -151,7 +151,7 @@ class Task:
             "total_step": self.step_counter
         }
         return result
-    
+
     def draw(self):
         points = [p["pos"] for p in self.path if p["action"] == "move"]
         points.insert(0, self.start)
