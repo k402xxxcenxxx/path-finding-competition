@@ -15,9 +15,24 @@ class PlazaDB:
                     "y": {"type": "number"},
                 },
                 "required": ["x", "y"]
+            },
+            "attributes": {
+                "type": "object",
+                "properties": {
+                    "storage_temperature": {"type": "number"},
+                    "weight": {"type": "number"},
+                    "packaging_volume": {"type": "string"},
+                    "fragile": {"type": "boolean"},
+                },
+                "required": [
+                    "storage_temperature",
+                    "weight",
+                    "packaging_volume",
+                    "fragile"
+                ]
             }
         },
-        "required": ["name", "pos"]
+        "required": ["name", "pos", "attributes"]
     }
 
     def __init__(self, filepath: str) -> None:
