@@ -9,6 +9,7 @@ import numpy as np
 from plaza.algorithm import Algorithm
 from plaza.plaza_db import PlazaDB
 from plaza.plaza_env import PlazaEnv
+from plaza.path import ActionType
 
 class Task:
     def __init__(self, config_filepath="simple.yaml", num_item=2):
@@ -136,8 +137,8 @@ class Task:
         current_pos = self.start
 
         for p in self.path:
-            if p["action"] == "transfer":
-                dest_level = p["level"]
+            if p.type == ActionType.TRANSFER:
+                dest_level = p.level
                 portal = self.env.transfer( current_pos, current_level, dest_level)
 
                 if portal == None:
@@ -146,14 +147,14 @@ class Task:
                     current_pos = (portal["pos"]["x"], portal["pos"]["y"])
                     current_level = dest_level
 
-            elif p["action"] == "move":
-                if not self._is_valid_line(current_pos, p["pos"], current_level):
+            elif p.type == ActionType.MOVE:
+                if not self._is_valid_line(current_pos, p.pos, current_level):
                     self.is_valid = False
                     return
                 else:
-                    current_pos = p["pos"]
+                    current_pos = p.pos
 
-            elif p["action"] == "buy":
+            elif p.type == ActionType.BUY:
                 item = self.db.query(current_pos, current_level)
                 if item == None:
                     self.logger.warning(f"Invalid buy action: level: {current_level}, pos: {current_pos}")
@@ -193,16 +194,16 @@ class Task:
         current_pos = self.start
 
         for p in self.path:
-            if p["action"] == "transfer":
-                dest_level = p["level"]
+            if p.type == ActionType.TRANSFER:
+                dest_level = p.level
                 portal = self.env.transfer(current_pos, current_level, dest_level)
 
                 current_pos = (portal["pos"]["x"], portal["pos"]["y"])
                 current_level = dest_level
 
-            elif p["action"] == "move":
+            elif p.type == ActionType.MOVE:
                 x0, y0 = current_pos
-                x1, y1 = p["pos"]
+                x1, y1 = p.pos
                 line_points = self._bresenham(x0, y0, x1, y1)
                 for point in line_points:
                     tmp = self.path_image.copy()
@@ -211,8 +212,8 @@ class Task:
                     cv2.waitKey(33)
                     if cv2.waitKey(33) == ord('q'):
                         return
-                current_pos = p["pos"]
-            elif p["action"] == "buy":
+                current_pos = p.pos
+            elif p.type == ActionType.BUY:
                 item = self.db.query(current_pos, current_level)
                 if item != None:
                     tmp = self.path_image.copy()
