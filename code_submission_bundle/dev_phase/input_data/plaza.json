@@ -1,28 +1,58 @@
 [
     {
-        "name": "banana",
+        "name": "Milk Carton",
         "pos": {
-            "x": 150,
-            "y": 400
+            "x": 255,
+            "y": 94,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
-            "weight": 100,
+            "weight": 500,
             "packaging_volume": "M",
-            "fragile": true
+            "fragile": false
         }
     },
     {
-        "name": "apple",
+        "name": "Snack Pack",
         "pos": {
-            "x": 50,
-            "y": 400
+            "x": 413,
+            "y": 41,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
             "weight": 100,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Bottle of Olive Oil",
+        "pos": {
+            "x": 856,
+            "y": 522,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 600,
             "packaging_volume": "M",
-            "fragile": true
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Berries",
+        "pos": {
+            "x": 601,
+            "y": 598,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 5,
+            "weight": 120,
+            "packaging_volume": "S",
+            "fragile": false
         }
     }
-]
+  ]

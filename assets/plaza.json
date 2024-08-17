@@ -1,262 +1,282 @@
 [
-  {
-      "name": "Milk Carton",
-      "pos": {
-          "x": 255,
-          "y": 94
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 500,
-          "packaging_volume": "M",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Snack Pack",
-      "pos": {
-          "x": 413,
-          "y": 41
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 100,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Candy Bag",
-      "pos": {
-          "x": 835,
-          "y": 44
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 30,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Canned Beans",
-      "pos": {
-          "x": 368,
-          "y": 206
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 200,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Frozen Pizza",
-      "pos": {
-          "x": 576,
-          "y": 193
-      },
-      "attributes": {
-          "storage_temperature": 5,
-          "weight": 1500,
-          "packaging_volume": "M",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Ice Cream Tub",
-      "pos": {
-          "x": 820,
-          "y": 204
-      },
-      "attributes": {
-          "storage_temperature": 5,
-          "weight": 2000,
-          "packaging_volume": "M",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Box of Cereal",
-      "pos": {
-          "x": 185,
-          "y": 292
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 300,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Pasta Box",
-      "pos": {
-          "x": 631,
-          "y": 276
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 300,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Soda Can",
-      "pos": {
-          "x": 459,
-          "y": 379
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 200,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Frozen Chicken",
-      "pos": {
-          "x": 820,
-          "y": 793
-      },
-      "attributes": {
-          "storage_temperature": -20,
-          "weight": 2000,
-          "packaging_volume": "L",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Bread Loaf",
-      "pos": {
-          "x": 931,
-          "y": 451
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 500,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Frozen Vegetables",
-      "pos": {
-          "x": 253,
-          "y": 522
-      },
-      "attributes": {
-          "storage_temperature": 5,
-          "weight": 500,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Rice Bag",
-      "pos": {
-          "x": 396,
-          "y": 531
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 5000,
-          "packaging_volume": "L",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Potato Sack",
-      "pos": {
-          "x": 425,
-          "y": 512
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 1500,
-          "packaging_volume": "L",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Bottle of Olive Oil",
-      "pos": {
-          "x": 856,
-          "y": 522
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 600,
-          "packaging_volume": "M",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Frozen Berries",
-      "pos": {
-          "x": 601,
-          "y": 598
-      },
-      "attributes": {
-          "storage_temperature": 5,
-          "weight": 120,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Pack of Cookies",
-      "pos": {
-          "x": 686,
-          "y": 610
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 300,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Frozen Fish Fillets",
-      "pos": {
-          "x": 99,
-          "y": 714
-      },
-      "attributes": {
-          "storage_temperature": -20,
-          "weight": 50,
-          "packaging_volume": "S",
-          "fragile": true
-      }
-  },
-  {
-      "name": "Pack of Eggs",
-      "pos": {
-          "x": 353,
-          "y": 714
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 500,
-          "packaging_volume": "S",
-          "fragile": false
-      }
-  },
-  {
-      "name": "Bag of Chips",
-      "pos": {
-          "x": 825,
-          "y": 658
-      },
-      "attributes": {
-          "storage_temperature": 25,
-          "weight": 500,
-          "packaging_volume": "M",
-          "fragile": false
-      }
-  }
-]
+    {
+        "name": "Milk Carton",
+        "pos": {
+            "x": 255,
+            "y": 94,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "M",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Snack Pack",
+        "pos": {
+            "x": 413,
+            "y": 41,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 100,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Candy Bag",
+        "pos": {
+            "x": 835,
+            "y": 44,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 30,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Canned Beans",
+        "pos": {
+            "x": 368,
+            "y": 206,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 200,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Pizza",
+        "pos": {
+            "x": 576,
+            "y": 193,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 5,
+            "weight": 1500,
+            "packaging_volume": "M",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Ice Cream Tub",
+        "pos": {
+            "x": 820,
+            "y": 204,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 5,
+            "weight": 2000,
+            "packaging_volume": "M",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Box of Cereal",
+        "pos": {
+            "x": 185,
+            "y": 292,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 300,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Pasta Box",
+        "pos": {
+            "x": 631,
+            "y": 276,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 300,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Soda Can",
+        "pos": {
+            "x": 459,
+            "y": 379,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 200,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Chicken",
+        "pos": {
+            "x": 820,
+            "y": 793,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": -20,
+            "weight": 2000,
+            "packaging_volume": "L",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Bread Loaf",
+        "pos": {
+            "x": 931,
+            "y": 451,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Vegetables",
+        "pos": {
+            "x": 253,
+            "y": 522,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 5,
+            "weight": 500,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Rice Bag",
+        "pos": {
+            "x": 396,
+            "y": 531,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 5000,
+            "packaging_volume": "L",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Potato Sack",
+        "pos": {
+            "x": 425,
+            "y": 512,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 1500,
+            "packaging_volume": "L",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Bottle of Olive Oil",
+        "pos": {
+            "x": 856,
+            "y": 522,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 600,
+            "packaging_volume": "M",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Berries",
+        "pos": {
+            "x": 601,
+            "y": 598,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 5,
+            "weight": 120,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Pack of Cookies",
+        "pos": {
+            "x": 686,
+            "y": 610,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 300,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Frozen Fish Fillets",
+        "pos": {
+            "x": 99,
+            "y": 714,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": -20,
+            "weight": 50,
+            "packaging_volume": "S",
+            "fragile": true
+        }
+    },
+    {
+        "name": "Pack of Eggs",
+        "pos": {
+            "x": 353,
+            "y": 714,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "S",
+            "fragile": false
+        }
+    },
+    {
+        "name": "Bag of Chips",
+        "pos": {
+            "x": 825,
+            "y": 658,
+            "level": 1
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "M",
+            "fragile": false
+        }
+    }
+  ]

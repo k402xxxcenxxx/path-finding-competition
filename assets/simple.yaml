@@ -1,5 +1,20 @@
-world:
-  obstacle_map: 'simple.jpg'
+plaza:
+  maps:
+  - image: 'simple.jpg'
+    portals:
+      - pos:
+          x: 393
+          y: 181
+        dests:
+          - []
   item_list: 'simple.json'
-  start: [100, 100]
-  end: [420, 380]
+  start:
+    level: 0
+    pos:
+      x: 100
+      y: 100
+  end:
+    level: 0
+    pos:
+      x: 420
+      y: 380

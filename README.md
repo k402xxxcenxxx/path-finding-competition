@@ -7,7 +7,6 @@ An impromptu website created for a competition aimed at finding the best route.
 python3 -m venv .venv
 source .venv/bin/activate
 
-cd plaza
 pip install -r plaza/requirements.txt
 
 python3 main.py
