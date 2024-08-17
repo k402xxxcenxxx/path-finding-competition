@@ -6,7 +6,7 @@ def main():
     from plaza.task import Task
     from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
-    task = Task(config_filepath="assets/plaza.yaml", num_item=2)
+    task = Task(config_filepath="assets/plaza.yaml")
 
     print('Starting')
     start = time.time()

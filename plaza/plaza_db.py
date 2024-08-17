@@ -54,8 +54,11 @@ class PlazaDB:
 
         self.kdtrees = [KDTree(p) for p in self.points]
 
-    def gets(self, num: int = 1) -> list:
-        return random.sample(self.db, k=num)
+    def gets(self, num: int = -1) -> list:
+        if num < 0:
+            return self.db.copy()
+        else:
+            return random.sample(self.db, k=num)
 
     def query(self, point: tuple, level: int, max_distance: float = 3.0) -> object:
         distance, idx = self.kdtrees[level].query(point)

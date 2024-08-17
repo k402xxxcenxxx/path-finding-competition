@@ -4,8 +4,6 @@ from pathfinding.core.grid import Grid
 from pathfinding.finder.a_star import AStarFinder
 from plaza.path import BuyAction, MoveAction, TranferAction, Action
 
-import cv2
-
 class PlazaAlgorithm(Algorithm):
     def __init__(self, maps, items, start, start_level, end, end_level):
         super().__init__(maps, items, start, start_level, end, end_level)

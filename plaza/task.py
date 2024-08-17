@@ -12,7 +12,7 @@ from plaza.plaza_env import PlazaEnv
 from plaza.path import ActionType
 
 class Task:
-    def __init__(self, config_filepath="simple.yaml", num_item=2):
+    def __init__(self, config_filepath: str = "simple.yaml", num_item: int = -1):
         self.logger = logging.getLogger(__name__)
 
         self.config = {}
