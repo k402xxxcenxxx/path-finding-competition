@@ -1,5 +1,33 @@
-world:
-  obstacle_map: 'plaza.jpg'
+plaza:
+  maps:
+  - image: 'plaza.jpg'
+    portals:
+      - pos:
+          x: 393
+          y: 181
+        dests:
+          - level: 1
+            pos:
+              x: 393
+              y: 181
+  - image: 'plaza2.jpg'
+    portals:
+      - pos:
+          x: 393
+          y: 181
+        dests:
+          - level: 0
+            pos:
+              x: 393
+              y: 181
   item_list: 'plaza.json'
-  start: [565, 875]
-  end: [436, 61]
+  start:
+    level: 0
+    pos:
+      x: 342
+      y: 906
+  end:
+    level: 0
+    pos:
+      x: 567
+      y: 877

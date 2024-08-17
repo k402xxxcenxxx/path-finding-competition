@@ -6,11 +6,11 @@ def main():
     from plaza.task import Task
     from plaza.plaza_algorithm import PlazaAlgorithm
     print('Init environment')
-    task = Task(config_filepath="assets/plaza.yaml", num_item=20)
+    task = Task(config_filepath="assets/plaza.yaml")
 
     print('Starting')
     start = time.time()
-    task.init_algorithm(PlazaAlgorithm(task.env.map_data, task.target_list, task.start, task.end))
+    task.init_algorithm(PlazaAlgorithm(task.env.maps, task.target_list, task.start, task.start_level, task.end, task.end_level))
 
     print('-' * 10)
 

@@ -3,7 +3,8 @@
         "name": "Milk Carton",
         "pos": {
             "x": 255,
-            "y": 94
+            "y": 94,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -16,7 +17,8 @@
         "name": "Snack Pack",
         "pos": {
             "x": 413,
-            "y": 41
+            "y": 41,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -29,7 +31,8 @@
         "name": "Candy Bag",
         "pos": {
             "x": 835,
-            "y": 44
+            "y": 44,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -42,7 +45,8 @@
         "name": "Canned Beans",
         "pos": {
             "x": 368,
-            "y": 206
+            "y": 206,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -55,7 +59,8 @@
         "name": "Frozen Pizza",
         "pos": {
             "x": 576,
-            "y": 193
+            "y": 193,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 5,
@@ -68,7 +73,8 @@
         "name": "Ice Cream Tub",
         "pos": {
             "x": 820,
-            "y": 204
+            "y": 204,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 5,
@@ -81,7 +87,8 @@
         "name": "Box of Cereal",
         "pos": {
             "x": 185,
-            "y": 292
+            "y": 292,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -94,7 +101,8 @@
         "name": "Pasta Box",
         "pos": {
             "x": 631,
-            "y": 276
+            "y": 276,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -107,7 +115,8 @@
         "name": "Soda Can",
         "pos": {
             "x": 459,
-            "y": 379
+            "y": 379,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": 25,
@@ -120,7 +129,8 @@
         "name": "Frozen Chicken",
         "pos": {
             "x": 820,
-            "y": 793
+            "y": 793,
+            "level": 0
         },
         "attributes": {
             "storage_temperature": -20,
@@ -133,7 +143,8 @@
         "name": "Bread Loaf",
         "pos": {
             "x": 931,
-            "y": 451
+            "y": 451,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -146,7 +157,8 @@
         "name": "Frozen Vegetables",
         "pos": {
             "x": 253,
-            "y": 522
+            "y": 522,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 5,
@@ -159,7 +171,8 @@
         "name": "Rice Bag",
         "pos": {
             "x": 396,
-            "y": 531
+            "y": 531,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -172,7 +185,8 @@
         "name": "Potato Sack",
         "pos": {
             "x": 425,
-            "y": 512
+            "y": 512,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -185,7 +199,8 @@
         "name": "Bottle of Olive Oil",
         "pos": {
             "x": 856,
-            "y": 522
+            "y": 522,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -198,7 +213,8 @@
         "name": "Frozen Berries",
         "pos": {
             "x": 601,
-            "y": 598
+            "y": 598,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 5,
@@ -211,7 +227,8 @@
         "name": "Pack of Cookies",
         "pos": {
             "x": 686,
-            "y": 610
+            "y": 610,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -224,7 +241,8 @@
         "name": "Frozen Fish Fillets",
         "pos": {
             "x": 99,
-            "y": 714
+            "y": 714,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": -20,
@@ -237,7 +255,8 @@
         "name": "Pack of Eggs",
         "pos": {
             "x": 353,
-            "y": 714
+            "y": 714,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -250,7 +269,8 @@
         "name": "Bag of Chips",
         "pos": {
             "x": 825,
-            "y": 658
+            "y": 658,
+            "level": 1
         },
         "attributes": {
             "storage_temperature": 25,
@@ -260,4 +280,3 @@
         }
     }
   ]
-  
