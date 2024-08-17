@@ -24,10 +24,10 @@ plaza:
   start:
     level: 0
     pos:
-      x: 475
-      y: 432
+      x: 342
+      y: 906
   end:
     level: 0
     pos:
-      x: 436
-      y: 61
+      x: 567
+      y: 877

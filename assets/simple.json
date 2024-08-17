@@ -3,14 +3,28 @@
         "name": "banana",
         "pos": {
             "x": 150,
-            "y": 400
+            "y": 400,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "S",
+            "fragile": false
         }
     },
     {
         "name": "apple",
         "pos": {
             "x": 50,
-            "y": 400
+            "y": 400,
+            "level": 0
+        },
+        "attributes": {
+            "storage_temperature": 25,
+            "weight": 500,
+            "packaging_volume": "S",
+            "fragile": false
         }
     }
 ]

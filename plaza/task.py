@@ -47,6 +47,7 @@ class Task:
         self.path_color = (255, 0, 0) # Blue
         self.collision_color = (0, 0, 255) # Red
         self.buy_color = (0, 255, 0) # Green
+        self.buy_number_color = (255, 255, 255) # White
         self.path_image = None
         self.path_image_y_offsets = []
         self.collision_point = None
@@ -173,6 +174,8 @@ class Task:
                     self.item_list.append(item)
                     buy_draw_point = (current_pos[0], self.path_image_y_offsets[current_level] + current_pos[1])
                     cv2.circle(self.path_image, buy_draw_point, 3, self.buy_color, -1)
+                    self.path_image = cv2.putText(self.path_image, str(len(self.item_list)), buy_draw_point, cv2.FONT_HERSHEY_SIMPLEX,
+                                    1, self.buy_number_color, 2, cv2.LINE_AA)
             else:
                 self.logger.warning(f"Invalid action: {p}")
                 self.is_valid = False
