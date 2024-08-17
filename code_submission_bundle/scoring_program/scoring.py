@@ -8,6 +8,8 @@ print('Reading result')
 with open(os.path.join(result_dir, "result.json"), "r") as f:
     json_data = json.load(f)
     total_step = json_data.get("total_step", -1)
+    frozen_step = json_data.get("frozen_step", -1)
+    fresh_step = json_data.get("fresh_step", -1)
     duration = json_data.get("duration", -1)
     is_valid = json_data.get("is_valid", False)
     is_finish = json_data.get("is_finish", False)
@@ -20,6 +22,8 @@ scores = {
     "is_valid": is_valid,
     "is_finish": is_finish,
     "total_step": total_step,
+    "frozen_step": frozen_step,
+    "fresh_step": fresh_step,
 }
 print(scores)
 
